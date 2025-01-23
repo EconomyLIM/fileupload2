@@ -40,8 +40,9 @@ public class ItemService {
 
         for (UploadFile storeImageFile : storeImageFiles) {
             settingItem(storeImageFile, item);
-            uploadFileRepository.save(storeImageFile);
         }
+        uploadFileRepository.saveAll(storeImageFiles);
+
         return new ItemSaveResponse(item.getId());
     }
 
